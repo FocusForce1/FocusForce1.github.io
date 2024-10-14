@@ -87,14 +87,12 @@ function resetQuiz() {
 }
  
 function applyDistractionStyling() {
-    document.body.style = 'background-image: none';
     document.body.style.animation = 'backgroundFlash 3s infinite';
     document.getElementById('questionText').classList.add('question-gradient');
 }
  
 function removeDistractionStyling() {
     document.body.style.animation = '';
-    document.body.style = 'background-image: url(./img/wp.jpg)';
     document.getElementById('questionText').classList.remove('question-gradient');
 }
  
