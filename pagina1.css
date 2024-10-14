@@ -8,6 +8,8 @@ body {
     padding: 20px;
     transition: background-color 0.5s;
     overflow: hidden;
+    background-size: cover;
+    
 }
  
 .question-box {
@@ -31,7 +33,7 @@ body {
     animation: fadeIn 1s forwards, fadeOut 10s forwards;
     pointer-events: none;
     z-index: 0;
-    max-width: 80%; /* Zorgt ervoor dat de tekst en afbeeldingen passen */
+    max-width: 80%;
 }
  
 @keyframes backgroundFlash {

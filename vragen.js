@@ -39,7 +39,7 @@ const adhdWords = [
 ];
  
 const adhdImages = [
-    '/img/img1.png', // Voeg hier je afbeeldingspaden in
+    '/img/img1.png', 
     '/img/img2.png',
     '/img/img3.png',
     '/img/img4.png',
@@ -66,7 +66,7 @@ function startQuiz(questions, quizNumber) {
     } else if (quizNumber === 2) {
         startTime2 = new Date();
         applyDistractionStyling();
-        adhdInterval = setInterval(displayAdhdElements, 3000); // Om de 3 seconden
+        adhdInterval = setInterval(displayAdhdElements, 3000);
     }
  
     currentQuiz = { questions, quizNumber };
@@ -80,19 +80,21 @@ function resetQuiz() {
     document.getElementById('questionBox').style.display = 'none';
     removeDistractionStyling();
     clearInterval(adhdInterval);
-    usedQuestionsQuiz1.length = 0; // Reset de gebruikte vragenlijst
-    usedQuestionsQuiz2.length = 0; // Reset de gebruikte vragenlijst
+    usedQuestionsQuiz1.length = 0;
+    usedQuestionsQuiz2.length = 0; 
     const impulseElements = document.querySelectorAll('.impulse-text, .adhd-text, .adhd-image');
     impulseElements.forEach(el => el.remove());
 }
  
 function applyDistractionStyling() {
+    document.body.style = 'background-image: none';
     document.body.style.animation = 'backgroundFlash 3s infinite';
     document.getElementById('questionText').classList.add('question-gradient');
 }
  
 function removeDistractionStyling() {
     document.body.style.animation = '';
+    document.body.style = 'background-image: url(./img/wp.jpg)';
     document.getElementById('questionText').classList.remove('question-gradient');
 }
  
@@ -231,8 +233,8 @@ function displayAdhdElements() {
     const imageElement = document.createElement('img');
     imageElement.className = 'adhd-image';
     imageElement.src = randomImageSrc;
-    imageElement.style.width = '50px';
-    imageElement.style.height = '50px';
+    imageElement.style.width = '100px';
+    imageElement.style.height = '100px';
     imageElement.style.position = 'absolute';
     imageElement.style.top = `${Math.random() * 80}vh`;
     imageElement.style.left = `${Math.random() * 80}vw`;
