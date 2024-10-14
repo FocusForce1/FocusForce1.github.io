@@ -151,7 +151,7 @@ function checkAnswer(selected, correct) {
         }
         alert('Goed!');
     } else {
-        alert('Fout, een nieuwe vraag wordt getoond.');
+        alert('Fout! Nieuwe vraag.');
         if (currentQuiz.quizNumber === 2) {
             displayImpulseText(); // Toon impulsieve tekst na een fout antwoord
         }
@@ -180,7 +180,7 @@ function displayImpulseText() {
 }
  
 function showNextQuiz() {
-    alert('Vragenlijst 1 voltooid! Start nu Vragenlijst 2.');
+    alert('Ronde 1 voltooid! Ga nu beginnen met ronde 2.');
     document.getElementById('questionBox').style.display = 'none';
 }
  
