@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Pagina</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="pagina1.css">
+</head>
+<body>
+<button id="startQuiz1Btn" class="btn btn-primary mb-5">Start Vragenlijst 1</button>
+<button id="startQuiz2Btn" class="btn btn-primary">Start Vragenlijst 2</button>
+<div id="questionBox" class="question-box">
+<h2 id="questionText">Vraag komt hier...</h2>
+<div id="answers"></div>
+</div>
+<div id="endScreen" class="end-screen" style="display: none;">
+    <h2>Resultaten</h2>
+    <p>Timer Vragenlijst 1: <span id="timer1Result">--:--</span></p>
+    <p>Timer Vragenlijst 2: <span id="timer2Result">--:--</span></p>
+    <button id="retryBtn" class="retry-btn">Opnieuw starten</button>
+    </div>
+ 
+    <script src="vragen.js"></script>
+</body>
+</html>
