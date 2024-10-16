@@ -171,7 +171,7 @@ function checkAnswer(selected, correct) {
                 return;
             }
         }
-        alert('Goed! Ga 1 stap vooruit en klik op "OK" om een nieuwe vraag te krijgen');
+        alert('Goed! Ga 1 stap vooruit \n Klik op "OK" om een nieuwe vraag te krijgen');
     } else {
         alert('Fout! Ga 1 stap achteruit en klik op "OK" om een nieuwe vraag te krijgen.');
         if (currentQuiz.quizNumber === 2) {
