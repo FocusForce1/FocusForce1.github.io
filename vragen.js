@@ -17,7 +17,7 @@ const quiz1Questions = [
     { question: "Welke van de volgende landen ligt in Zuid-Amerika?", answers: ["Portugal", "Italië", "Spanje", "Brazilië"], correct: 3 },
 
 ];
- 
+
 const quiz2Questions = [
     { question: "Welke kleur krijg je als je geel en blauw mengt?", answers: ["Groen", "Paars", "Oranje", "Bruin"], correct: 0 },
     { question: "Hoeveel planeten heeft ons zonnestelsel (exclusief dwergplaneten)?", answers: ["10", "8", "6", "9"], correct: 1 },
@@ -33,58 +33,26 @@ const quiz2Questions = [
     { question: "Wat is de belangrijkste energiebron voor de aarde?", answers: ["Zon", "Wind", "Waterkracht", "Fosiele brandstoffen"], correct: 0 },
     { question: "Wat is de kleinste eenheid van leven?", answers: ["Cel", "Weefsel", "Molecuul", "Organel"], correct: 0 },
     { question: "Welke oceaan ligt ten westen van Europa?", answers: ["Indische Oceaan", "Grote Oceaan", "Atlantische Oceaan", "Noordelijke Ijszee"], correct: 2 },
-    { question: "Wat is het meest voorkomende element in het universum?", answers: ["Zuurstod", "Koolstof", "Helium", "Waterstof"], correct: 3 },
+    { question: "Wat is het meest voorkomende element in het universum?", answers: ["Zuurstof", "Koolstof", "Helium", "Waterstof"], correct: 3 },
     { question: "Wat is het hoogste gebergte ter wereld?", answers: ["Alpen", "Andes", "Himalaya", "Rocky Mountains"], correct: 2 },
     { question: "Wat is de naam van het schip waarmee Willem Barentsz naar Nova Zembla voer", answers: ["De Zeven Provinciën", "De Halve Maen", "De Amsterdam", "De Neptunus"], correct: 1 },
 ];
- 
-const impulseTexts = [
-    "Wat als ik nu wegren?",
-    "Ik wil een snack halen...",
-    "Zou ik dit object kunnen omgooien?",
-    "Misschien kan ik gewoon even dansen.",
-    "Wat als ik nu gewoon iets randoms roep?",
-    "Zal ik nu even mijn telefoon checken?",
-    "Zal ik nu gewoon alle stoelen omdraaien?",
-    "Zal ik nu alle lichten uitdoen?",
-    "Ik zou nu gewoon alle potloden kunnen breken.",
-];
- 
-const adhdWords = [
-    "Afleiding",
-    "Overprikkeling",
-    "Focus",
-    "Chaos",
-    "Rusteloos",
-    "Drukte",
-];
- 
-const adhdImages = [
-    '/img/img1.png', 
-    '/img/img2.png',
-    '/img/img3.gif',
-    '/img/img4.gif',
-    '/img/img5.gif',
-    '/img/img6.png',
-    '/img/img7.png',
-    '/img/img8.png',
-    '/img/img9.png',
-    '/img/img10.png',
-];
- 
+
 const usedQuestionsQuiz1 = [];
 const usedQuestionsQuiz2 = [];
- 
-let correctCountQuiz1 = 0;
-let correctCountQuiz2 = 0;
+
 let currentQuiz = null;
 let startTime1, startTime2, endTime1, endTime2;
 let adhdInterval;
- 
+
 document.getElementById('startQuiz1Btn').addEventListener('click', () => startQuiz(quiz1Questions, 1));
-document.getElementById('startQuiz2Btn').addEventListener('click', () => startQuiz(quiz2Questions, 2));
+document.getElementById('startQuiz2Btn').addEventListener('click', () => {
+    endTime1 = new Date(); // Timer voor ronde 1 stopt hier
+    startQuiz(quiz2Questions, 2);
+});
 document.getElementById('retryBtn').addEventListener('click', () => location.reload());
- 
+document.getElementById('endQuizBtn').addEventListener('click', stopGameAndShowEndScreen); // Nieuwe knop toegevoegd
+
 function startQuiz(questions, quizNumber) {
     resetQuiz();
     if (quizNumber === 1) {
@@ -94,14 +62,12 @@ function startQuiz(questions, quizNumber) {
         applyDistractionStyling();
         adhdInterval = setInterval(displayAdhdElements, 3000);
     }
- 
+
     currentQuiz = { questions, quizNumber };
     showQuestion();
 }
- 
+
 function resetQuiz() {
-    correctCountQuiz1 = 0;
-    correctCountQuiz2 = 0;
     currentQuiz = null;
     document.getElementById('questionBox').style.display = 'none';
     removeDistractionStyling();
@@ -111,39 +77,39 @@ function resetQuiz() {
     const impulseElements = document.querySelectorAll('.impulse-text, .adhd-text, .adhd-image');
     impulseElements.forEach(el => el.remove());
 }
- 
+
 function applyDistractionStyling() {
     document.body.style.animation = 'backgroundFlash 3s infinite';
     document.getElementById('questionText').classList.add('question-gradient');
 }
- 
+
 function removeDistractionStyling() {
     document.body.style.animation = '';
     document.getElementById('questionText').classList.remove('question-gradient');
 }
- 
+
 function showQuestion() {
     const questionList = currentQuiz.questions;
     const usedQuestions = currentQuiz.quizNumber === 1 ? usedQuestionsQuiz1 : usedQuestionsQuiz2;
- 
+
     // Kies een vraag die nog niet gebruikt is
     const availableQuestions = questionList.filter((_, index) => !usedQuestions.includes(index));
- 
+
     if (availableQuestions.length === 0) {
         alert('Alle vragen zijn beantwoord!');
         return;
     }
- 
+
     const randomIndex = Math.floor(Math.random() * availableQuestions.length);
     const selectedQuestion = availableQuestions[randomIndex];
     const questionIndex = questionList.indexOf(selectedQuestion);
- 
+
     usedQuestions.push(questionIndex);
- 
+
     document.getElementById('questionText').textContent = selectedQuestion.question;
     const answersDiv = document.getElementById('answers');
     answersDiv.innerHTML = '';
- 
+
     selectedQuestion.answers.forEach((answer, index) => {
         const button = document.createElement('button');
         button.className = 'btn btn-secondary m-2';
@@ -151,117 +117,54 @@ function showQuestion() {
         button.onclick = () => checkAnswer(index, selectedQuestion.correct);
         answersDiv.appendChild(button);
     });
- 
+
     document.getElementById('questionBox').style.display = 'block';
 }
- 
+
 function checkAnswer(selected, correct) {
     if (selected === correct) {
-        if (currentQuiz.quizNumber === 1) {
-            correctCountQuiz1++;
-            if (correctCountQuiz1 === 4) {
-                endTime1 = new Date();
-                showNextQuiz();
-                return;
-            }
-        } else {
-            correctCountQuiz2++;
-            if (correctCountQuiz2 % 2 === 0) {
-                displayImpulseText(); // Toon impulsieve tekst na elke 2 correcte antwoorden
-            }
-            if (correctCountQuiz2 === 4) {
-                endTime2 = new Date();
-                checkCompletion();
-                return;
-            }
-        }
-        alert('Goed! Ga 1 stap vooruit \nKlik op "OK" om een nieuwe vraag te krijgen');
+        alert('Goed! Ga 1 stap vooruit \nKlik op "OK" om een nieuwe vraag te krijgen.');
     } else {
         alert('Fout! Ga 1 stap achteruit \nKlik op "OK" om een nieuwe vraag te krijgen.');
-        if (currentQuiz.quizNumber === 2) {
-            displayImpulseText(); // Toon impulsieve tekst na een fout antwoord
-        }
     }
-    showQuestion(); // Toon een nieuwe vraag na elk antwoord (goed of fout)
+    showQuestion();
 }
- 
-function displayImpulseText() {
-    const randomText = impulseTexts[Math.floor(Math.random() * impulseTexts.length)];
-    const impulseElement = document.createElement('div');
-    impulseElement.className = 'impulse-text';
-    impulseElement.textContent = randomText;
- 
-    impulseElement.style.position = 'absolute';
-    impulseElement.style.top = `${Math.random() * 80}vh`;
-    impulseElement.style.left = `${Math.random() * 80}vw`;
-    impulseElement.style.zIndex = '999'; // Zorg ervoor dat de impulsieve tekst boven andere elementen ligt
-    impulseElement.style.animation = 'fadeIn 1s forwards, fadeOut 10s forwards';
- 
-    document.body.appendChild(impulseElement);
- 
-    // Verwijder de impulsieve tekst na 10 seconden om het scherm schoon te houden
+
+function displayAdhdElements() {
+    const body = document.body;
+    const textElement = document.createElement('div');
+    const imageElement = document.createElement('div');
+
+    textElement.textContent = 'ADHD impulsieve tekst!';
+    textElement.classList.add('adhd-text', 'impulse-text');
+    imageElement.classList.add('adhd-image', 'impulse-image');
+
+    textElement.style.top = Math.random() * window.innerHeight + 'px';
+    textElement.style.left = Math.random() * window.innerWidth + 'px';
+
+    body.appendChild(textElement);
+    body.appendChild(imageElement);
+
     setTimeout(() => {
-        impulseElement.remove();
-    }, 10000);
+        textElement.remove();
+        imageElement.remove();
+    }, 5000);
 }
- 
-function showNextQuiz() {
-    alert('Ronde 1 voltooid! Ga nu beginnen met ronde 2.');
-    document.getElementById('questionBox').style.display = 'none';
+
+// Nieuwe functie om het spel te stoppen en het eindscherm te tonen
+function stopGameAndShowEndScreen() {
+    endTime2 = new Date(); // Stop de timer van ronde 2
+    clearInterval(adhdInterval);
+    showEndScreen();
 }
- 
-function checkCompletion() {
-    if (endTime1 && endTime2) {
-        showEndScreen();
-    }
-}
- 
+
 function showEndScreen() {
     const time1 = ((endTime1 - startTime1) / 1000).toFixed(2);
     const time2 = ((endTime2 - startTime2) / 1000).toFixed(2);
     document.getElementById('timer1Result').textContent = `${time1} seconden`;
     document.getElementById('timer2Result').textContent = `${time2} seconden`;
- 
+
     removeDistractionStyling();
- 
+
     document.getElementById('endScreen').style.display = 'flex';
-}
- 
-function displayImpulseText() {
-    const randomText = impulseTexts[Math.floor(Math.random() * impulseTexts.length)];
-    const impulseElement = document.createElement('div');
-    impulseElement.className = 'impulse-text';
-    impulseElement.textContent = randomText;
- 
-    impulseElement.style.top = `${Math.random() * 80}vh`;
-    impulseElement.style.left = `${Math.random() * 80}vw`;
- 
-    document.body.appendChild(impulseElement);
-}
- 
-function displayAdhdElements() {
-    // Willekeurig woord weergeven
-    const randomWord = adhdWords[Math.floor(Math.random() * adhdWords.length)];
-    const wordElement = document.createElement('div');
-    wordElement.className = 'adhd-text';
-    wordElement.textContent = randomWord;
- 
-    wordElement.style.position = 'absolute';
-    wordElement.style.top = `${Math.random() * 80}vh`;
-    wordElement.style.left = `${Math.random() * 80}vw`;
- 
-    document.body.appendChild(wordElement);
- 
-    // Willekeurige afbeelding weergeven
-    const randomImageSrc = adhdImages[Math.floor(Math.random() * adhdImages.length)];
-    const imageElement = document.createElement('img');
-    imageElement.className = 'adhd-image';
-    imageElement.src = randomImageSrc;
-    imageElement.style.width = '100px';
-    imageElement.style.height = '100px';
-    imageElement.style.position = 'absolute';
-    imageElement.style.top = `${Math.random() * 80}vh`;
-    imageElement.style.left = `${Math.random() * 80}vw`;
- 
-    document.body.appendChild(imageElement);
 }
