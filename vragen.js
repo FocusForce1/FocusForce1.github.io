@@ -6,7 +6,16 @@ const quiz1Questions = [
     { question: "Welke van de volgende dieren is een zoogdier?", answers: ["Walvis", "Kikker", "Schildpad", "Adelaar"], correct: 0 },
     { question: "Hoeveel minuten zitten er in een uur?", answers: ["70", "60", "30", "90"], correct: 1 },
     { question: "Wat is het symbool voor waterstof in het periodiek systeem?", answers: ["H", "W", "O", "He"], correct: 0 },
-    { question: "Welke taal wordt voornamelijk gesproken in Brazilië?", answers: ["Spaans", "Frans", "Engels", "Portugees"], correct: 3 },
+    { question: "Welke kleur krijg je als je geel en blauw mengt?", answers: ["Rood", "Groen", "Paars", "Oranje"], correct: 1 },
+    { question: "Wat is de hoofdstad van Spanje?", answers: ["Barcelona", "Madrid", "Valencia", "Sevilla"], correct: 1 },
+    { question: "Wat is het grootste land ter wereld qua oppervlakte?", answers: ["China", "Verenigde Staten", "Rusland", "Canada"], correct: 2 },
+    { question: "Hoeveel continenten zijn er op aarde?", answers: ["5", "6", "7", "8"], correct: 2 },
+    { question: "Wat is de grootste planeet in ons zonnestelsel?", answers: ["Jupiter", "Aarde", "Saturnus", "Mars"], correct: 0 },
+    { question: "Welke twee kleuren zitten in de Nederlandse vlag?", answers: ["Blauw en wit", "Rood en Oranje", "Oranje en Blauw", "Rood en Grijs"], correct: 0 },
+    { question: "Welke van de volgende dieren is een koudbloedig dier?", answers: ["Leeuw", "Krokodil", "Olifant", "Hond"], correct: 1 },
+    { question: "Hoe heet het proces waarbij planten zonlicht omzetten in energie?", answers: ["Ademhaling", "Voortplanting", "Fotosynthese", "Fermentatie"], correct: 2 },
+    { question: "Welke van de volgende landen ligt in Zuid-Amerika?", answers: ["Portugal", "Italië", "Spanje", "Brazilië"], correct: 3 },
+
 ];
  
 const quiz2Questions = [
@@ -18,6 +27,16 @@ const quiz2Questions = [
     { question: "Welke gas is het meest voorkomend in de aardeatmosfeer?", answers: ["Waterstof", "Stikstof", "Zuurstof", "Koolstofdioxide"], correct: 1 },
     { question: "Welke van de volgende dieren legt eieren?", answers: ["Konijn", "Kat", "Kip", "Hond"], correct: 2 },
     { question: "Wat is het grootste continent op aarde?", answers: ["Zuid-Amerika", "Afrika", "Europa", "Azië"], correct: 3 },
+    { question: "Hoeveel tanden heeft een gemiddeld volwassen mens?", answers: ["28", "32", "24", "32"], correct: 1 },
+    { question: "Wat is de wetenschappelijke naam voor water?", answers: ["O2", "CO2", "H2O", "NaCL"], correct: 2 },
+    { question: "Wat is het grootste bot in het menselijk lichaam?", answers: ["Rib", "Dijbeen", "Bovenarm", "Scheenbeen"], correct: 1 },
+    { question: "Wie was de eerste president van de Verenigde Staten?", answers: ["Thomas Jefferson", "John Adams", "Abraham Lincoln", "George Washington"], correct: 3 },
+    { question: "Wat is de belangrijkste energiebron voor de aarde?", answers: ["Zon", "Wind", "Waterkracht", "Fosiele brandstoffen"], correct: 0 },
+    { question: "Wat is de kleinste eenheid van leven?", answers: ["Cel", "Weefsel", "Molecuul", "Organel"], correct: 0 },
+    { question: "Welke oceaan ligt ten westen van Europa?", answers: ["Indische Oceaan", "Grote Oceaan", "Atlantische Oceaan", "Noordelijke Ijszee"], correct: 2 },
+    { question: "Wat is het meest voorkomende element in het universum?", answers: ["Zuurstod", "Koolstof", "Helium", "Waterstof"], correct: 3 },
+    { question: "Wat is het hoogste gebergte ter wereld?", answers: ["Alpen", "Andes", "Himalaya", "Rocky Mountains"], correct: 2 },
+    { question: "Wat is de naam van het schip waarmee Willem Barentsz naar Nova Zembla voer", answers: ["De Zeven Provinciën", "De Halve Maen", "De Amsterdam", "De Neptunus"], correct: 1 },
 ];
  
 const impulseTexts = [
