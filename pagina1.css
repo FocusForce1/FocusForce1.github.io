@@ -88,7 +88,7 @@ body {
     background-color: #0056b3;
 }
 
-.neon-answers{
+#answers button{
     background-color: yellow;
     color: magenta;
 }
