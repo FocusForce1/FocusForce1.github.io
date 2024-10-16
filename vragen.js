@@ -111,11 +111,13 @@ function resetQuiz() {
 function applyDistractionStyling() {
     document.body.style.animation = 'backgroundFlash 3s infinite';
     document.getElementById('questionText').classList.add('question-gradient');
+    document.getElementsByClassName('answers').classList.add('neon-answers');
 }
  
 function removeDistractionStyling() {
     document.body.style.animation = '';
     document.getElementById('questionText').classList.remove('question-gradient');
+    document.getElementsByClassName('answers').classList.remove('neon-answers');
 }
  
 function showQuestion() {
@@ -142,7 +144,7 @@ function showQuestion() {
  
     selectedQuestion.answers.forEach((answer, index) => {
         const button = document.createElement('button');
-        button.className = 'btn btn-secondary m-2';
+        button.className = 'answers btn btn-secondary m-2';
         button.textContent = answer;
         button.onclick = () => checkAnswer(index, selectedQuestion.correct);
         answersDiv.appendChild(button);
