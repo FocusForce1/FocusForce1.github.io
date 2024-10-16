@@ -87,3 +87,8 @@ body {
 .retry-btn:hover {
     background-color: #0056b3;
 }
+
+.neon-answers{
+    background-color: yellow;
+    color: magenta;
+}
