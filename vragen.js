@@ -191,7 +191,7 @@ function displayImpulseText() {
     impulseElement.style.top = `${Math.random() * 80}vh`;
     impulseElement.style.left = `${Math.random() * 80}vw`;
     impulseElement.style.zIndex = '999'; // Zorg ervoor dat de impulsieve tekst boven andere elementen ligt
-    impulseElement.style.animation = 'fadeIn 1s forwards, fadeOut 10s forwards';
+    impulseElement.style.animation = 'fadeIn 1s forwards, fadeOut 5s forwards';
  
     document.body.appendChild(impulseElement);
  
