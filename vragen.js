@@ -51,7 +51,6 @@ document.getElementById('startQuiz2Btn').addEventListener('click', () => {
     startQuiz(quiz2Questions, 2);
 });
 document.getElementById('retryBtn').addEventListener('click', () => location.reload());
-document.getElementById('endQuizBtn').addEventListener('click', stopGameAndShowEndScreen); // Nieuwe knop toegevoegd
 
 function startQuiz(questions, quizNumber) {
     resetQuiz();
@@ -123,7 +122,11 @@ function showQuestion() {
 
 function checkAnswer(selected, correct) {
     if (selected === correct) {
-        alert('Goed! Ga 1 stap vooruit \nKlik op "OK" om een nieuwe vraag te krijgen.');
+        if (currentQuiz.quizNumber === 1) {
+            alert('Goed! Ga 1 stap vooruit \nKlik op "OK" om een nieuwe vraag te krijgen.');
+        } else {
+            alert('Goed! Ga 1 stap vooruit \nKlik op "OK" om een nieuwe vraag te krijgen.');
+        }
     } else {
         alert('Fout! Ga 1 stap achteruit \nKlik op "OK" om een nieuwe vraag te krijgen.');
     }
@@ -149,13 +152,6 @@ function displayAdhdElements() {
         textElement.remove();
         imageElement.remove();
     }, 5000);
-}
-
-// Nieuwe functie om het spel te stoppen en het eindscherm te tonen
-function stopGameAndShowEndScreen() {
-    endTime2 = new Date(); // Stop de timer van ronde 2
-    clearInterval(adhdInterval);
-    showEndScreen();
 }
 
 function showEndScreen() {
