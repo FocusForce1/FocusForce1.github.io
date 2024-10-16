@@ -46,6 +46,9 @@ const impulseTexts = [
     "Misschien kan ik gewoon even dansen.",
     "Wat als ik nu gewoon iets randoms roep?",
     "Zal ik nu even mijn telefoon checken?",
+    "Zal ik nu gewoon alle stoelen omdraaien?",
+    "Zal ik nu alle lichten uitdoen?",
+    "Ik zou nu gewoon alle potloden kunnen breken.",
 ];
  
 const adhdWords = [
@@ -168,9 +171,9 @@ function checkAnswer(selected, correct) {
                 return;
             }
         }
-        alert('Goed!');
+        alert('Goed! Ga 1 stap vooruit en klik op "OK" om een nieuwe vraag te krijgen');
     } else {
-        alert('Fout! Nieuwe vraag.');
+        alert('Fout! Ga 1 stap achteruit en klik op "OK" om een nieuwe vraag te krijgen.');
         if (currentQuiz.quizNumber === 2) {
             displayImpulseText(); // Toon impulsieve tekst na een fout antwoord
         }
