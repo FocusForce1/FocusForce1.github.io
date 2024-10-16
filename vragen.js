@@ -171,9 +171,9 @@ function checkAnswer(selected, correct) {
                 return;
             }
         }
-        alert('Goed! Ga 1 stap vooruit \n Klik op "OK" om een nieuwe vraag te krijgen');
+        alert('Goed! Ga 1 stap vooruit \nKlik op "OK" om een nieuwe vraag te krijgen');
     } else {
-        alert('Fout! Ga 1 stap achteruit en klik op "OK" om een nieuwe vraag te krijgen.');
+        alert('Fout! Ga 1 stap achteruit \nKlik op "OK" om een nieuwe vraag te krijgen.');
         if (currentQuiz.quizNumber === 2) {
             displayImpulseText(); // Toon impulsieve tekst na een fout antwoord
         }
