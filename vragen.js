@@ -63,9 +63,9 @@ const adhdWords = [
 const adhdImages = [
     '/img/img1.png', 
     '/img/img2.png',
-    '/img/img3.png',
+    '/img/img3.gif',
     '/img/img4.gif',
-    '/img/img5.png',
+    '/img/img5.gif',
     '/img/img6.png',
     '/img/img7.png',
     '/img/img8.png',
