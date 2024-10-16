@@ -21,7 +21,6 @@ const quiz1Questions = [
 const quiz2Questions = [
     { question: "Welke kleur krijg je als je geel en blauw mengt?", answers: ["Groen", "Paars", "Oranje", "Bruin"], correct: 0 },
     { question: "Hoeveel planeten heeft ons zonnestelsel (exclusief dwergplaneten)?", answers: ["10", "8", "6", "9"], correct: 1 },
-    { question: "Welke vorm heeft een stopbord doorgaans?", answers: ["Vierkant", "Achthoek", "Cirkel", "Driehoek"], correct: 2 },
     { question: "Wat is de grootste oceaan op aarde?", answers: ["Atlantische Oceaan", "Indische Oceaan", "Zuidelijke Oceaan", "Stille Oceaan"], correct: 3 },
     { question: "Welke van de volgende getallen is een priemgetal?", answers: ["17", "12", "21", "15"], correct: 0 },
     { question: "Welke gas is het meest voorkomend in de aardeatmosfeer?", answers: ["Waterstof", "Stikstof", "Zuurstof", "Koolstofdioxide"], correct: 1 },
